@@ -60,11 +60,11 @@ const uri = "mongodb+srv://javadkia:2213744829@clusterjk.rd49d.mongodb.net/messa
 mongoose.connect(uri, {
     useUnifiedTopology: true
 }).then(result => {
-        const server = app.listen(8080, () => console.log('server is running'));
-        //Set up socket io for webSocket
-        const io = require('./socket').init(server);
+    const server = app.listen(8080, () => console.log('server is running'));
+    //Set up socket io for webSocket
+    const io = require('./socket').init(server);
 
-        io.on('connection', socket => {
-            console.log('client connected')
-        });
-    }).catch(err => console.log(err));
+    io.on('connection', socket => {
+        console.log('client connected')
+    });
+}).catch(err => console.log(err));
